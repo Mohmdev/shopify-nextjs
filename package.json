@@ -5,9 +5,9 @@
     "pnpm": ">=9"
   },
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev --turbo -p 3000",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3000",
     "prettier": "prettier --write --ignore-unknown .",
     "prettier:check": "prettier --check --ignore-unknown .",
     "test": "pnpm prettier:check"
