@@ -1,15 +1,15 @@
 'use client';
 
+import LoadingDots from '@/components/ui/loading-dots';
+import { DEFAULT_OPTION } from '@/lib/constants';
+import { createUrl } from '@/lib/utils';
 import { Dialog, Transition } from '@headlessui/react';
 import { ShoppingCartIcon } from '@heroicons/react/24/outline';
-import LoadingDots from 'components/loading-dots';
-import Price from 'components/price';
-import { DEFAULT_OPTION } from 'lib/constants';
-import { createUrl } from 'lib/utils';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import { useFormStatus } from 'react-dom';
+import Price from '../ui/price';
 import { createCartAndSetCookie, redirectToCheckout } from './actions';
 import { useCart } from './cart-context';
 import CloseCart from './close-cart';

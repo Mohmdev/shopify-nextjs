@@ -1,10 +1,10 @@
 'use client';
 
+import { addItem } from '@/components/cart/actions';
+import { useProduct } from '@/components/product/product-context';
+import { Product, ProductVariant } from '@/lib/shopify/types';
+import { cn } from '@/lib/utils';
 import { PlusIcon } from '@heroicons/react/24/outline';
-import clsx from 'clsx';
-import { addItem } from 'components/cart/actions';
-import { useProduct } from 'components/product/product-context';
-import { Product, ProductVariant } from 'lib/shopify/types';
 import { useActionState } from 'react';
 import { useCart } from './cart-context';
 
@@ -21,7 +21,7 @@ function SubmitButton({
 
   if (!availableForSale) {
     return (
-      <button disabled className={clsx(buttonClasses, disabledClasses)}>
+      <button disabled className={cn(buttonClasses, disabledClasses)}>
         Out Of Stock
       </button>
     );
@@ -33,7 +33,7 @@ function SubmitButton({
       <button
         aria-label="Please select an option"
         disabled
-        className={clsx(buttonClasses, disabledClasses)}
+        className={cn(buttonClasses, disabledClasses)}
       >
         <div className="absolute left-0 ml-4">
           <PlusIcon className="h-5" />
@@ -46,7 +46,7 @@ function SubmitButton({
   return (
     <button
       aria-label="Add to cart"
-      className={clsx(buttonClasses, {
+      className={cn(buttonClasses, {
         'hover:opacity-90': true
       })}
     >

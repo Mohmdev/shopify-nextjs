@@ -1,8 +1,8 @@
 'use client';
 
-import clsx from 'clsx';
-import { useProduct, useUpdateURL } from 'components/product/product-context';
-import { ProductOption, ProductVariant } from 'lib/shopify/types';
+import { useProduct, useUpdateURL } from '@/components/product/product-context';
+import { ProductOption, ProductVariant } from '@/lib/shopify/types';
+import { cn } from '@/lib/utils';
 
 type Combination = {
   id: string;
@@ -71,7 +71,7 @@ export function VariantSelector({
                 aria-disabled={!isAvailableForSale}
                 disabled={!isAvailableForSale}
                 title={`${option.name} ${value}${!isAvailableForSale ? ' (Out of Stock)' : ''}`}
-                className={clsx(
+                className={cn(
                   'flex min-w-[48px] items-center justify-center rounded-full border bg-neutral-100 px-2 py-1 text-sm dark:border-neutral-800 dark:bg-neutral-900',
                   {
                     'cursor-default ring-2 ring-blue-600': isActive,
