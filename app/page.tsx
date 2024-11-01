@@ -1,6 +1,6 @@
 import { ThreeItemGrid } from '@/components/grid/three-items';
-import Footer from '@/components/layout/footer';
 import { Carousel } from '@/components/ui/carousel';
+import Hero from '@/components/ui/hero';
 
 export const metadata = {
   description: 'High-performance ecommerce store built with Next.js, Vercel, and Shopify.',
@@ -12,9 +12,9 @@ export const metadata = {
 export default function HomePage() {
   return (
     <>
-      <ThreeItemGrid />
+      <Hero />
+      <ThreeItemGrid className="content-container py-12 lg:py-16" />
       <Carousel />
-      <Footer />
     </>
   );
 }

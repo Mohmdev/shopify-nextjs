@@ -1,12 +1,7 @@
-import React from 'react'
+import type { IconProps } from '@/lib/types';
+import React from 'react';
 
-import { IconProps } from 'types/icon'
-
-const Back: React.FC<IconProps> = ({
-  size = '16',
-  color = 'currentColor',
-  ...attributes
-}) => {
+const Back: React.FC<IconProps> = ({ size = '16', color = 'currentColor', ...attributes }) => {
   return (
     <svg
       width={size}
@@ -31,7 +26,7 @@ const Back: React.FC<IconProps> = ({
         strokeLinejoin="round"
       />
     </svg>
-  )
-}
+  );
+};
 
-export default Back
+export default Back;

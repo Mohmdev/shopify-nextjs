@@ -1,0 +1,17 @@
+@tailwind components;
+
+html {
+  @apply antialiased;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: light;
+  }
+} */
+
+@layer components {
+  .content-container {
+    @apply mx-auto w-full max-w-[90rem]; /* 1440px */
+  }
+}

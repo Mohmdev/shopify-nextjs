@@ -1,35 +1,32 @@
-'use client'
+'use client';
 
-import { cn } from '@/lib/util/cn'
-import { MoonIcon, SunIcon } from '@radix-ui/react-icons'
-import { useTheme } from 'next-themes'
-import React, { useEffect, useState } from 'react'
+import { cn } from '@/lib/utils';
+import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
+import { useTheme } from 'next-themes';
+import React, { useEffect, useState } from 'react';
 
 interface ModeToggleProps {
-  size?: number
-  className?: string
+  size?: number;
+  className?: string;
 }
 
-const ModeToggle: React.FC<ModeToggleProps> = ({
-  size = 24,
-  className = '',
-}) => {
-  const { theme, setTheme } = useTheme()
-  const [isDarkMode, setIsDarkMode] = useState(theme === 'dark')
+const ModeToggle: React.FC<ModeToggleProps> = ({ size = 24, className = '' }) => {
+  const { theme, setTheme } = useTheme();
+  const [isDarkMode, setIsDarkMode] = useState(theme === 'dark');
 
   useEffect(() => {
-    setIsDarkMode(theme === 'dark')
-  }, [theme])
+    setIsDarkMode(theme === 'dark');
+  }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(isDarkMode ? 'light' : 'dark')
-    setIsDarkMode((prevMode) => !prevMode)
-  }
+    setTheme(isDarkMode ? 'light' : 'dark');
+    setIsDarkMode((prevMode) => !prevMode);
+  };
 
   const containerSize = {
     width: `${size}px`,
-    height: `${size}px`,
-  }
+    height: `${size}px`
+  };
 
   return (
     <>
@@ -104,7 +101,7 @@ const ModeToggle: React.FC<ModeToggleProps> = ({
         }
       `}</style>
     </>
-  )
-}
+  );
+};
 
-export default ModeToggle
+export default ModeToggle;

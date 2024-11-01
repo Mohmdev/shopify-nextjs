@@ -1,5 +1,7 @@
 import { CartProvider } from '@/components/cart/cart-context';
-import { Navbar } from '@/components/layout/navbar';
+import Footer from '@/components/layout/footer';
+import { Header } from '@/components/layout/header';
+import { ThemeProvider } from '@/components/ui/theme-provider';
 import { WelcomeToast } from '@/components/ui/welcome-toast';
 import { getCart } from '@/lib/shopify';
 import { cn, ensureStartsWith } from '@/lib/utils';
@@ -7,6 +9,7 @@ import { GeistSans } from 'geist/font/sans';
 import { cookies } from 'next/headers';
 import { ReactNode } from 'react';
 import { Toaster } from 'sonner';
+import 'styles/custom.css';
 import 'styles/globals.css';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -42,7 +45,12 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
   const cart = getCart(cartId);
 
   return (
-    <html lang="en" className={GeistSans.variable}>
+    <html
+      lang="en"
+      data-mode="light"
+      className={GeistSans.variable}
+      suppressHydrationWarning={true}
+    >
       <body
         className={cn(
           'bg-neutral-50 selection:bg-teal-300 dark:bg-neutral-900 dark:selection:bg-pink-500',
@@ -50,12 +58,13 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
         )}
       >
         <CartProvider cartPromise={cart}>
-          <Navbar />
-          <main>
-            {children}
+          <ThemeProvider attribute="class" defaultTheme="light" enableSystem={true}>
+            <Header />
+            <main className="min-h-screen">{children}</main>
             <Toaster closeButton />
             <WelcomeToast />
-          </main>
+            <Footer className="mt-12" />
+          </ThemeProvider>
         </CartProvider>
       </body>
     </html>

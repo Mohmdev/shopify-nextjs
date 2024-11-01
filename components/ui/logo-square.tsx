@@ -1,7 +1,13 @@
 import { cn } from '@/lib/utils';
 import AcmeLogo from './icons/acme';
 
-export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
+export default function LogoSquare({
+  size,
+  className
+}: {
+  size?: 'sm' | undefined;
+  className?: string;
+}) {
   return (
     <div
       className={cn(
@@ -9,7 +15,8 @@ export default function LogoSquare({ size }: { size?: 'sm' | undefined }) {
         {
           'h-[40px] w-[40px] rounded-xl': !size,
           'h-[30px] w-[30px] rounded-lg': size === 'sm'
-        }
+        },
+        className
       )}
     >
       <AcmeLogo
